@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.fresno.adapter.grpc";
+option java_outer_classname = "FresnoDailyNewsGetVerbsService";
+
+
+service FresnoDailyNewsGetVerbs {
+  rpc GetVerbForms (GetVerbFormsRequest) returns (GetVerbFormsResponse) {}
+  //rpc GetVerbsStartWith (GetVerbsStartWithRequest) returns (GetVerbsStartWithRequestResponse) {}
+}
+
+message GetVerbFormsRequest {
+  string message = 1;
+}
+
+message GetVerbFormsResponse {
+  string reply = 1;
+}
+/*
+message GetVerbsStartWithRequest {
+  string message = 1;
+}
+
+message GetVerbsStartWithRequestResponse {
+  string reply = 1;
+}*/

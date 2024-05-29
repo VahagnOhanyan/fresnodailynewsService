@@ -1,0 +1,5 @@
+venv
+config
+config/config.cfg
+.idea
+.git
