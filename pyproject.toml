@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=42", "wheel", "py2app>=0.28.8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "example-package"
+version = "0.1.0"
+description = "An example package"
+authors = [{name = "Vahagn Ohanyan"}]
+dependencies = []
+
+[tool.py2app]
+argv_emulation = false
+packages = ["code", "config"]
+includes = ["code", "config"]
+
+[tool.setuptools]
+packages = ["code", "config"]

@@ -2,8 +2,9 @@ from concurrent import futures
 
 import grpc
 
-from code import FresnoDailyNews_pb2_grpc, FresnoDailyNews_pb2, FresnoDailyNewsGetVerbs_pb2_grpc, \
-    FresnoDailyNewsGetVerbs_pb2, FresnoDailyNewsGetVerbsStartWith_pb2_grpc, FresnoDailyNewsGetVerbsStartWith_pb2
+from services import FresnoDailyNews_pb2, FresnoDailyNewsGetVerbs_pb2, FresnoDailyNewsGetVerbsStartWith_pb2
+from services import FresnoDailyNewsGetVerbsStartWith_pb2_grpc, FresnoDailyNews_pb2_grpc, \
+    FresnoDailyNewsGetVerbs_pb2_grpc
 from code.pythonrpcmethods import extract_keywords, get_verb_forms, get_verbs_start_with
 
 

@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import code.FresnoDailyNews_pb2 as FresnoDailyNews__pb2
+from services import FresnoDailyNewsGetVerbs_pb2 as FresnoDailyNewsGetVerbs__pb2
 
 GRPC_GENERATED_VERSION = '1.64.0'
 GRPC_VERSION = grpc.__version__
@@ -20,7 +20,7 @@ except ImportError:
 if _version_not_supported:
     warnings.warn(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in FresnoDailyNews_pb2_grpc.py depends on'
+        + f' but the generated code in FresnoDailyNewsGetVerbs_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -30,7 +30,7 @@ if _version_not_supported:
     )
 
 
-class FresnoDailyNewsStub(object):
+class FresnoDailyNewsGetVerbsStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -39,43 +39,43 @@ class FresnoDailyNewsStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.ExtractKeyword = channel.unary_unary(
-                '/fresnodailynews.FresnoDailyNews/ExtractKeyword',
-                request_serializer=FresnoDailyNews__pb2.ExtractKeywordsRequest.SerializeToString,
-                response_deserializer=FresnoDailyNews__pb2.ExtractKeywordsResponse.FromString,
+        self.GetVerbForms = channel.unary_unary(
+                '/FresnoDailyNewsGetVerbs/GetVerbForms',
+                request_serializer=FresnoDailyNewsGetVerbs__pb2.GetVerbFormsRequest.SerializeToString,
+                response_deserializer=FresnoDailyNewsGetVerbs__pb2.GetVerbFormsResponse.FromString,
                 _registered_method=True)
 
 
-class FresnoDailyNewsServicer(object):
+class FresnoDailyNewsGetVerbsServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def ExtractKeyword(self, request, context):
+    def GetVerbForms(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_FresnoDailyNewsServicer_to_server(servicer, server):
+def add_FresnoDailyNewsGetVerbsServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'ExtractKeyword': grpc.unary_unary_rpc_method_handler(
-                    servicer.ExtractKeyword,
-                    request_deserializer=FresnoDailyNews__pb2.ExtractKeywordsRequest.FromString,
-                    response_serializer=FresnoDailyNews__pb2.ExtractKeywordsResponse.SerializeToString,
+            'GetVerbForms': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetVerbForms,
+                    request_deserializer=FresnoDailyNewsGetVerbs__pb2.GetVerbFormsRequest.FromString,
+                    response_serializer=FresnoDailyNewsGetVerbs__pb2.GetVerbFormsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'fresnodailynews.FresnoDailyNews', rpc_method_handlers)
+            'FresnoDailyNewsGetVerbs', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('fresnodailynews.FresnoDailyNews', rpc_method_handlers)
+    server.add_registered_method_handlers('FresnoDailyNewsGetVerbs', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class FresnoDailyNews(object):
+class FresnoDailyNewsGetVerbs(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def ExtractKeyword(request,
+    def GetVerbForms(request,
             target,
             options=(),
             channel_credentials=None,
@@ -88,9 +88,9 @@ class FresnoDailyNews(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/fresnodailynews.FresnoDailyNews/ExtractKeyword',
-            FresnoDailyNews__pb2.ExtractKeywordsRequest.SerializeToString,
-            FresnoDailyNews__pb2.ExtractKeywordsResponse.FromString,
+            '/FresnoDailyNewsGetVerbs/GetVerbForms',
+            FresnoDailyNewsGetVerbs__pb2.GetVerbFormsRequest.SerializeToString,
+            FresnoDailyNewsGetVerbs__pb2.GetVerbFormsResponse.FromString,
             options,
             channel_credentials,
             insecure,

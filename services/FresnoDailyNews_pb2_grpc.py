@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import code.FresnoDailyNewsGetVerbsStartWith_pb2 as FresnoDailyNewsGetVerbsStartWith__pb2
+import services.FresnoDailyNews_pb2 as FresnoDailyNews__pb2
 
 GRPC_GENERATED_VERSION = '1.64.0'
 GRPC_VERSION = grpc.__version__
@@ -20,7 +20,7 @@ except ImportError:
 if _version_not_supported:
     warnings.warn(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in FresnoDailyNewsGetVerbsStartWith_pb2_grpc.py depends on'
+        + f' but the generated code in FresnoDailyNews_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -30,7 +30,7 @@ if _version_not_supported:
     )
 
 
-class FresnoDailyNewsGetVerbsStartWithStub(object):
+class FresnoDailyNewsStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -39,43 +39,43 @@ class FresnoDailyNewsGetVerbsStartWithStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.GetVerbsStartWith = channel.unary_unary(
-                '/FresnoDailyNewsGetVerbsStartWith/GetVerbsStartWith',
-                request_serializer=FresnoDailyNewsGetVerbsStartWith__pb2.GetVerbsStartWithRequest.SerializeToString,
-                response_deserializer=FresnoDailyNewsGetVerbsStartWith__pb2.GetVerbsStartWithResponse.FromString,
+        self.ExtractKeyword = channel.unary_unary(
+                '/fresnodailynews.FresnoDailyNews/ExtractKeyword',
+                request_serializer=FresnoDailyNews__pb2.ExtractKeywordsRequest.SerializeToString,
+                response_deserializer=FresnoDailyNews__pb2.ExtractKeywordsResponse.FromString,
                 _registered_method=True)
 
 
-class FresnoDailyNewsGetVerbsStartWithServicer(object):
+class FresnoDailyNewsServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def GetVerbsStartWith(self, request, context):
+    def ExtractKeyword(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_FresnoDailyNewsGetVerbsStartWithServicer_to_server(servicer, server):
+def add_FresnoDailyNewsServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'GetVerbsStartWith': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetVerbsStartWith,
-                    request_deserializer=FresnoDailyNewsGetVerbsStartWith__pb2.GetVerbsStartWithRequest.FromString,
-                    response_serializer=FresnoDailyNewsGetVerbsStartWith__pb2.GetVerbsStartWithResponse.SerializeToString,
+            'ExtractKeyword': grpc.unary_unary_rpc_method_handler(
+                    servicer.ExtractKeyword,
+                    request_deserializer=FresnoDailyNews__pb2.ExtractKeywordsRequest.FromString,
+                    response_serializer=FresnoDailyNews__pb2.ExtractKeywordsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'FresnoDailyNewsGetVerbsStartWith', rpc_method_handlers)
+            'fresnodailynews.FresnoDailyNews', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('FresnoDailyNewsGetVerbsStartWith', rpc_method_handlers)
+    server.add_registered_method_handlers('fresnodailynews.FresnoDailyNews', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class FresnoDailyNewsGetVerbsStartWith(object):
+class FresnoDailyNews(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def GetVerbsStartWith(request,
+    def ExtractKeyword(request,
             target,
             options=(),
             channel_credentials=None,
@@ -88,9 +88,9 @@ class FresnoDailyNewsGetVerbsStartWith(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/FresnoDailyNewsGetVerbsStartWith/GetVerbsStartWith',
-            FresnoDailyNewsGetVerbsStartWith__pb2.GetVerbsStartWithRequest.SerializeToString,
-            FresnoDailyNewsGetVerbsStartWith__pb2.GetVerbsStartWithResponse.FromString,
+            '/fresnodailynews.FresnoDailyNews/ExtractKeyword',
+            FresnoDailyNews__pb2.ExtractKeywordsRequest.SerializeToString,
+            FresnoDailyNews__pb2.ExtractKeywordsResponse.FromString,
             options,
             channel_credentials,
             insecure,
